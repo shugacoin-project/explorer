@@ -3,4 +3,4 @@ Nice and simple blockchain explorer with robust [ApiServer](https://github.com/M
 
 Feel free to modify/use it in your projects :D
 
-P.s. Working example [https://sugar.wtf/#/](https://sugar.wtf/#/)
+P.s. Working example [https://1explorer.shugacoin.org/#/](https://1explorer.shugacoin.org/#/)
