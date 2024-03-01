@@ -6,8 +6,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://sugar.wtf/wizardry.min.css">
-		<link rel="stylesheet" href="https://sugar.wtf/entypo/entypo.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/smartwizard/6.0.6/css/smart_wizard.min.css">
+		<link rel="stylesheet" href="https://api.shugacoin.org/static/entypo.css">
 		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -15,7 +15,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
 		<script src="https://code.highcharts.com/highcharts.src.js"></script>
 		
-		<link rel="icon" type="image/png" href="https://sugarchain.org/logo.png">
+		<link rel="icon" type="image/png" href="https://api.shugacoin.org/static/favicon.ico">
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 
 		<style>
@@ -78,7 +78,7 @@
 			}
 		</style>
 		<title>Blockchain Explorer</title>
-		<meta name="description" content="Sugarchain Blockchain Explorer">
+		<meta name="description" content="Shugacoin Blockchain Explorer">
 	</head>
 	<body>
 		<!-- Navbar -->
@@ -269,7 +269,7 @@
 		<!-- Footer :3 -->
 		<footer class="mb-3">
 			<div class="container text-center">
-				Made with <span class="entypo heart text-danger"></span> by <a target="_blank" href="https://github.com/sugarchain-project/blockchain-explorer">Volbil</a>
+				Made with <span class="entypo heart text-danger"></span> by <a target="_blank" href="https://github.com/shugacoin-project/explorer">Volbil</a>
 			</div>
 		</footer>
 
@@ -277,21 +277,13 @@
 		<script>
 			// Config
 			var networksConfigs = {
-				'SUGAR': {
-					'name': 'Main Network (SUGAR)',
-					// 'api': 'https://api.sugarchain.org',
-					'api': 'https://api.sugar.wtf',
-					'ticker': 'SUGAR',
+				'SHUGA': {
+					'name': 'Main Network (SHUGA)',
+					'api': 'https://api.shugacoin.org',
+					'ticker': 'SHUGA',
 					'decimals': 8,
-					'hrp': 'sugar'
+					'hrp': 'shuga'
 				},
-				// 'TSUGAR': {
-				// 	'name': 'Test Network (TUGAR)',
-				// 	'api': 'https://api-testnet.sugarchain.org',
-				// 	'ticker': 'TUGAR',
-				// 	'decimals': 8,
-				// 	'hrp': 'tugar'
-				// }
 			}
 
 			// Error messages
