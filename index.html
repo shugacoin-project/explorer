@@ -1,132 +1,103 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/smartwizard/6.0.6/css/smart_wizard.min.css">
-		<link rel="stylesheet" href="https://api.shugacoin.org/static/entypo.css">
-		
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
-		<script src="https://code.highcharts.com/highcharts.src.js"></script>
-		
-		<link rel="icon" type="image/png" href="https://api.shugacoin.org/static/favicon.ico">
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Shugacoin - Open source PoW CPU Blockchain</title>
+	<meta name="description" content="Shugacoin is a cryptocurrency that enables instant payments to anyone in the world and that can be efficiently mined with consumer-grade hardware." />
+	<meta name="keywords" content="shugacoin, shuga, crypto, cryptocurrency, bitcoin, ethereum, monero, btc, eth, miningpoolstats, bitcointalk" />
+	<meta name="author" content="shugacoin"/>
 
-		<style>
-			html {
-				height: 100%;
-			}
-			html, body {
-				min-height: 100%;
-			}
-			body {
-				font-family: 'Source Sans Pro', sans-serif;
-				padding-top: 75px;
-				padding-bottom: 56px;
-				position: relative;
-			}
-			#logo {
-				max-width: 30px;
-				max-height: 30px;
-				margin-top: -5px;
-				margin-right: 5px;
-			}
-			#supply {
-				cursor: pointer;
-			}
-			#qrCode canvas{
-				max-width: 100%;
-			}
-			.router-page {
-				display: none;
-			}
-			.flex-center {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-			[class*="entypo"]:before {
-				font-family: 'EntypoRegular', sans-serif;
-				font-size: 16px;
-			}
-			@media (max-width: 991.98px) {
-				.navbar-expand-lg>.container, .navbar-expand-lg>.container-fluid {
-					padding-right: 15px;
-					padding-left: 15px;
-				}
-			}
-			code {
-				background: #3f3f3f;
-				color: #ffffff;
-				padding: 3px;
-				border-radius: 5px;
-			}
-			.modal-dialog {
-				max-width: 530px;
-			}
-			.text-monospace {
-				font-size: 14px;
-			}
-			small .text-monospace {
-				font-size: 12px;
-			}
-		</style>
-		<title>Blockchain Explorer</title>
-		<meta name="description" content="Shugacoin Blockchain Explorer">
-	</head>
-	<body>
-		<!-- Navbar -->
-		<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-			<div class="container">
-				<a href="#" class="navbar-brand">
-					<b>Shugacoin Explorer</b>
-				</a>
-				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<ul class="navbar-nav ml-auto">
-						<li class="nav-item">
-							<a href="#" class="nav-link">Home</a>
-						</li>
-						<li class="nav-item">
-							<a href="/wallet/#/" class="nav-link">Wallet</a>
-						</li>
-						<li class="nav-item dropdown" id="network-list">
-							<a class="nav-item nav-link dropdown-toggle" href="#" id="network-versions" data-toggle="dropdown">NETWORK</a>
-						  	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="network-versions" >
-						  	</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-		
-		<!-- Error message and search -->
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="assets/images/favicon.png" />
+	<script src="https://code.highcharts.com/highcharts.src.js"></script>
+	<!-- Bootstrap & Plugins CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Custom CSS -->
+	<link href="assets/css/shuga.coin.min.css?v=1.0.0" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+	<div class="loading-wrapper">
+		<div class="loading">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>	
+
+	<!-- ***** Header Area Start ***** -->
+	<header class="header-area">
 		<div class="container">
-			<div id="error-message" class="alert alert-warning d-none" role="alert">
-				Error, yay ∠( ᐛ 」∠)
-			</div>
-			<div class="card mb-3">
-				<div class="card-body">
-					<form id="search-form">
-						<div class="input-group">
-							<input type="text" id="search-field" name="search-field" class="form-control" placeholder="Block, hash, transaction, etc..." aria-label="Recipient's username" aria-describedby="button-addon2">
-							<div class="input-group-append">
-								<button class="btn btn-outline-dark" type="submit" id="button-addon2">Search!</button>
-							</div>
-						</div>
-					</form>
+			<div class="row">
+				<div class="col-12 position-relative">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a href="/" class="logo">
+							<img src="assets/images/logos/logo_107x29.png" class="light-logo" alt="Shugacoin Logo"/>
+							<img src="assets/images/logos/107x29_blue.png" class="dark-logo" alt="Shugacoin Logo"/>
+						</a>	
+						<!-- ***** Logo End ***** -->
+
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li><a href="#">Home</a></li>
+							<li><a href="https://wallet.shugacoin.org">Web Wallet</a></li>
+							<li><a href="https://t.me/shugacoin" class="btn-nav-box">Telegram</a></li>
+						</ul>
+						<a class='menu-trigger'>
+							<span>Menu</span>
+						</a>
+						<!-- ***** Menu End ***** -->						
+					</nav>
 				</div>
 			</div>
 		</div>
-	
+	</header>
+	<!-- ***** Header Area End ***** -->
+
+	<!-- ***** Wellcome Area Start ***** -->
+	<section class="block-explorer-wrapper bg-bottom-center" id="welcome-1">
+		<div class="block-explorer text">
+			<div class="container text-center">
+				<div class="row">
+					<div class="col-lg-12 align-self-center">
+						<h1>Shugacoin Explorer</h1>
+					</div>				
+					<div class="offset-lg-3 col-lg-6" id="supply">
+						<p>Circulating supply: <span>Loading...</span></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="search">
+			<div class="container">
+				<div id="error-message" class="alert alert-warning d-none" role="alert">
+					Error, yay ∠( ᐛ 」∠)
+				</div>			
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="input-wrapper">
+						<form id="search-form">
+							<div class="input">
+								<input type="text" id="search-field" name="search-field" placeholder="block, hash, transaction, etc...">
+								<button><i class="fa fa-search"></i></button>
+							</div>
+						</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</section>
+	<!-- ***** Wellcome Area End ***** -->
+
+	<section class="block-explorer-section section bg-bottom">
+	<div class="container">
 		<!-- Home page -->
 		<div id="homepage" class="router-page">
 			<div class="container">
@@ -134,9 +105,6 @@
 					<div class="card-body pb-2">
 						<div>
 							<div class="panel-body chart-wrapper" id="network-chart"></div>
-							<div class="text-center small text-success" id="supply">
-								<b>Circulating supply: <span>Loading...</span></b>
-							</div>
 						</div>
 					</div>
 				</div>
@@ -160,12 +128,12 @@
 			</div>
 
 			<div class="flex-center">
-				<button id="more" style="width: 190px;" class="btn btn-outline-dark mb-3 load-btn">
+				<center><button id="more" style="width: 190px;" class="btn btn-outline-dark mb-3 load-btn">
 					Load more
-				</button>
+				</button><center>
 			</div>
-		</div>
-	
+		</div>	
+		
 		<!-- Block page -->
 		<div id="block" class="router-page">
 			<div class="container">
@@ -173,12 +141,6 @@
 					
 				</div>
 				<div id="block-transactions" class="mb-3"></div>
-			</div>
-
-			<div class="flex-center">
-				<button id="more-block-transactions" style="width: 190px;" class="btn btn-outline-dark mb-3 load-btn d-none">
-					Load more
-				</button>
 			</div>
 		</div>
 	
@@ -214,7 +176,7 @@
 				</div>
 			</div>
 		</div>
-	
+
 		<!-- Address page -->
 		<div id="address" class="router-page">
 			<div class="container">
@@ -237,40 +199,55 @@
 			</div>
 
 			<div class="flex-center">
-				<button id="more-address-transactions" style="width: 190px;" class="btn btn-outline-dark mb-3 load-btn d-none">
+				<center><button id="more-address-transactions" style="width: 190px;" class="btn btn-outline-dark mb-3 load-btn d-none">
 					Load more
-				</button>
+				</button></center>
 			</div>
-		</div>
-		
-		<!-- QR code modal window -->
-		<div id="qrModal" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<div class="col-10" style="word-wrap: break-word;">
-							<b class="title"></b>
+		</div>	
+	
+	</div>
+	</section>
+	<!-- ***** Contact & Footer Start ***** -->
+	<footer id="contact">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-md-12 col-sm-12">
+						<div class="contact">
+							<p>If you are interested in the Shugacoin project, come to our community.</p>
+							<ul class="social">
+								<li><a href="https://twitter.com/shugacoin"><i class="fa fa-times"></i></a></li>
+								<li><a href="#"><i class="fa fa-btc"></i></a></li>
+								<li><a href="https://github.com/shugacoin-project"><i class="fa fa-github"></i></a></li>
+								<li><a href="https://t.me/shugacoin"><i title="Telegram" class="fa fa-telegram"></i></a></li>
+							</ul>							
 						</div>
-						<div class="col-2">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
+						
 					</div>
-					<div class="modal-body text-center">
-						<div id="qrCode"></div>
-					</div>
+					<p class="copyright">Copyright &copy; 2024 - shugacoin.com</p>
 				</div>
 			</div>
 		</div>
+	</footer>
+	<!-- ***** Contact & Footer End ***** -->
 
-		<!-- Footer :3 -->
-		<footer class="mb-3">
-			<div class="container text-center">
-				Made with <span class="entypo heart text-danger"></span> by <a target="_blank" href="https://github.com/shugacoin-project/explorer">Volbil</a>
-			</div>
-		</footer>
 
+	<!-- jQuery -->
+	<script src="assets/js/jquery-3.6.0.min.js"></script>
+
+	<!-- Bootstrap -->
+	<script src="assets/js/popper.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<!-- Plugins -->
+	<script src="assets/js/particles.min.js"></script>
+	<script src="assets/js/scrollreveal.min.js"></script>
+	<script src="assets/js/jquery.downCount.js"></script>
+	<script src="assets/js/parallax.min.js"></script>
+
+	<!-- Global Init -->
+	<script src="assets/js/particle-dark.js"></script>
+	<script src="assets/js/custom.js"></script>
 		<!-- All magic is here :D -->
 		<script>
 			// Config
@@ -966,14 +943,13 @@
 				$('#address-transactions').empty()
 				content = `
 					<div class="card mb-3">
-						<div class="table-responsive">
+						<div class="table-responsive">			
 							<table class="table table-borderless table-md table-striped mb-0">
 								<tbody>
 									<tr>
 										<td>Address</td>
 										<td id="data-address" data-address="${address}">
 											${address}
-											<a href="#" onclick="showQrModal(event, '${address}')">(QR)</a>
 										</td>
 									</tr>
 									<tr>
@@ -1640,6 +1616,6 @@
 					displayHome()
 				}, 10000);
 			})
-		</script>
-	</body>
+		</script>	
+</body>
 </html>
