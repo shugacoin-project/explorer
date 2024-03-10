@@ -1,21 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Explorer - Shugacoin - Open source PoW CPU Blockchain</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Shugacoin - Open source PoW CPU Blockchain</title>
 	<meta name="description" content="Shugacoin is a cryptocurrency that enables instant payments to anyone in the world and that can be efficiently mined with consumer-grade hardware." />
 	<meta name="keywords" content="shugacoin, shuga, crypto, cryptocurrency, bitcoin, ethereum, monero, btc, eth, miningpoolstats, bitcointalk" />
 	<meta name="author" content="shugacoin"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="resource/favicon.png" />	
-	<!-- Styles -->
-	<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css" />
-	<link rel="stylesheet" href="css/icons.css">
-	<link rel="stylesheet" href="css/animate.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css" />
-	<link rel="stylesheet" type="text/css" href="css/responsive.css" />
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+	<link rel="icon" type="image/png" href="assets/images/favicon.png" />
+	<script src="https://code.highcharts.com/highcharts.src.js"></script>
+	<!-- Bootstrap & Plugins CSS -->
+	<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Custom CSS -->
+	<link href="assets/css/shuga.coin.min.css?v=1.0.0" rel="stylesheet" type="text/css">
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y558K7PZ1X"></script>
 	<script>
@@ -24,98 +26,96 @@
 	  gtag('js', new Date());
 
 	  gtag('config', 'G-Y558K7PZ1X');
-	</script>	
+	</script>
 </head>
-<body class="lines" id="scrollup">
+<body>
 
-<img src="resource/bg/p3.png" class="vx" alt="" data-enllax-ratio="-0.1" data-enllax-type="foreground" />
+	<div class="loading-wrapper">
+		<div class="loading">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	</div>	
 
-<div class="theme-layout">
+	<!-- ***** Header Area Start ***** -->
+	<header class="header-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 position-relative">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a href="/" class="logo">
+							<img src="assets/images/logos/logo_107x29.png" class="light-logo" alt="Shugacoin Logo"/>
+							<img src="assets/images/logos/107x29_blue.png" class="dark-logo" alt="Shugacoin Logo"/>
+						</a>	
+						<!-- ***** Logo End ***** -->
 
-	<header class="sticktop">
-		<div class="menusec">
-			<div class="logo"> 
-				<a href="/" title="shugacoin">
-					<img class="hidec" src="resource/logo/logo-a.png" alt="shugacoin" />
-					<img class="showc" src="resource/logo/logo-b.png" alt="shugacoin" />
-				</a>
-			</div>
-			<div class="apps-btns">
-				<a href="https://wallet.shugacoin.org/#/" class="g1" title="">Web Wallet</a>
-				<a href="https://explorer.shugacoin.org/#/" class="g1" title="">Explorer</a>
-				<a class="smooth" href="#download" title="">Download</a>
-			</div>
-			<div class="open-minimal-menu resopen">
-				<div id="hamburger-two">
-				     <span></span>
-				     <span></span>
-				     <span></span>
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li><a href="#">Home</a></li>
+							<li><a href="https://wallet.shugacoin.org">Web Wallet</a></li>
+							<li><a href="https://t.me/shugacoin" class="btn-nav-box">Telegram</a></li>
+						</ul>
+						<a class='menu-trigger'>
+							<span>Menu</span>
+						</a>
+						<!-- ***** Menu End ***** -->						
+					</nav>
 				</div>
 			</div>
-			<nav id="navsc">
-				<div class="apps-btns mobilap">
-					<a href="https://wallet.shugacoin.org/#/" class="g1" title="">Web Wallet</a>
-					<a href="https://explorer.shugacoin.org/#/" class="g1" title="">Explorer</a>
-					<a class="smooth" href="#download" class="g2" title="">Download</a>
-				</div>
-			</nav>
 		</div>
 	</header>
+	<!-- ***** Header Area End ***** -->
 
-	<section>
-		<div class="block remove-top">
-			<div data-velocity="-.1" style="background: url(resource/bg/bakcground.png) repeat scroll 50% 422.28px transparent;" class="parallax no-parallax scrolly-invisible"></div>
-			<div class="container fluid">
+	<!-- ***** Wellcome Area Start ***** -->
+	<section class="block-explorer-wrapper bg-bottom-center" id="welcome-1">
+		<div class="block-explorer text">
+			<div class="container text-center">
 				<div class="row">
-					<div class="col-lg-12">
-						<div class="fsec">
-							<div class="finfos wow fadeIn" data-wow-delay="0s">
-								<h3>Shugacoin Explorer</h3>
-								<p id="supply">
-									Circulating supply: <span>Loading...</span>
-								</p>
-								<div class="social">
-									<a href="https://twitter.com/shugacoin" title=""><i class="fa fa-twitter"></i></a>
-									<a href="https://t.me/shugacoin" title=""><i class="fa fa-telegram"></i></a>
-									<a href="https://bitcointalk.org/index.php?topic=5487986.0" title=""><i class="fa fa-bitcoin"></i></a>
-									<a href="https://github.com/shugacoin-project" title=""><i class="fa fa-github"></i></a>
-								</div>
-							</div>
-						</div>
+					<div class="col-lg-12 align-self-center">
+						<h1>Shugacoin Explorer</h1>
+					</div>				
+					<div class="offset-lg-3 col-lg-6" id="supply">
+						<p>Circulating supply: <span>Loading...</span></p>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="search">
+			<div class="container">
+				<div id="error-message" class="alert alert-warning d-none" role="alert">
+					Error, yay ∠( ᐛ 」∠)
+				</div>			
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="input-wrapper">
+						<form id="search-form">
+							<div class="input">
+								<input type="text" id="search-field" name="search-field" placeholder="block, hash, transaction, etc...">
+								<button><i class="fa fa-search"></i></button>
+							</div>
+						</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
 	</section>
+	<!-- ***** Wellcome Area End ***** -->
 
-	<section>
-					<div id="charts" class="container d-none">
+	<section class="block-explorer-section section bg-bottom">
+	<div class="container">
+		<!-- Home page -->
+		<div id="homepage" class="router-page">
+			<div class="container">
+				<div id="charts" class="card mb-3 d-none">
+					<div class="card-body pb-2">
 						<div>
 							<div class="panel-body chart-wrapper" id="network-chart"></div>
 						</div>
 					</div>
-		<!-- Error message and search -->
-		<div class="container">
-			<div id="error-message" class="alert alert-warning d-none" role="alert">
-				Error, yay ∠( ᐛ 」∠)
-			</div>
-			<div class="card mb-3">
-				<div class="card-body">
-					<form id="search-form">
-						<div class="input-group">
-							<input type="text" id="search-field" name="search-field" class="form-control" placeholder="Block, hash, transaction, etc..." aria-label="Recipient's username" aria-describedby="button-addon2">
-							<div class="input-group-append">
-								<button class="btn btn-outline-dark" type="submit" id="button-addon2"><i class="fa fa-search" aria-hidden="true"></i></button>
-							</div>
-						</div>
-					</form>
 				</div>
-			</div>
-		</div>
-	
-		<!-- Home page -->
-		<div id="homepage" class="router-page">
-			<div class="container">
 				<div class="card mb-3">
 					<div class="table-responsive">
 						<table id="blocks-table" class="table table-borderless table-md table-striped text-center mb-0">
@@ -134,11 +134,14 @@
 					</div>
 				</div>
 			</div>
-			<ul class="paginationc">
-				<li><button id="more" class="btn btn-outline-dark mb-3 load-btn" style="width: 190px;">Load more</button></li>
-			</ul>
-		</div>
-	
+
+			<div class="flex-center">
+				<center><button id="more" style="width: 190px;" class="btn btn-outline-dark mb-3 load-btn">
+					Load more
+				</button><center>
+			</div>
+		</div>	
+		
 		<!-- Block page -->
 		<div id="block" class="router-page">
 			<div class="container">
@@ -147,10 +150,6 @@
 				</div>
 				<div id="block-transactions" class="mb-3"></div>
 			</div>
-
-			<ul class="paginationc">
-				<li><button id="more" class="btn btn-outline-dark mb-3 load-btn d-none" style="width: 190px;">Load more</button></li>
-			</ul>
 		</div>
 	
 		<!-- Transaction page -->
@@ -185,7 +184,7 @@
 				</div>
 			</div>
 		</div>
-	
+
 		<!-- Address page -->
 		<div id="address" class="router-page">
 			<div class="container">
@@ -207,61 +206,57 @@
 				<div id="address-transactions" class="mb-3"></div>
 			</div>
 
-			<ul class="paginationc">
-				<li><button id="more" class="btn btn-outline-dark mb-3 load-btn d-none" style="width: 190px;">Load more</button></li>
-			</ul>
-		</div>
-		
-		<!-- QR code modal window -->
-		<div id="qrModal" class="modal" tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<div class="col-10" style="word-wrap: break-word;">
-							<b class="title"></b>
+			<div class="flex-center">
+				<center><button id="more-address-transactions" style="width: 190px;" class="btn btn-outline-dark mb-3 load-btn d-none">
+					Load more
+				</button></center>
+			</div>
+		</div>	
+	
+	</div>
+	</section>
+	<!-- ***** Contact & Footer Start ***** -->
+	<footer id="contact">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-md-12 col-sm-12">
+						<div class="contact">
+							<p>If you are interested in the Shugacoin project, come to our community.</p>
+							<ul class="social">
+								<li><a href="https://twitter.com/shugacoin"><i class="fa fa-times"></i></a></li>
+								<li><a href="#"><i class="fa fa-btc"></i></a></li>
+								<li><a href="https://github.com/shugacoin-project"><i class="fa fa-github"></i></a></li>
+								<li><a href="https://t.me/shugacoin"><i title="Telegram" class="fa fa-telegram"></i></a></li>
+							</ul>							
 						</div>
-						<div class="col-2">
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
+						
 					</div>
-					<div class="modal-body text-center">
-						<div id="qrCode"></div>
-					</div>
+					<p class="copyright">Copyright &copy; 2024 - shugacoin.com</p>
 				</div>
 			</div>
 		</div>
-	</section>
-
-	<section id="seven">
-		<div class="block remove-bottom gray">
-			<div class="bottomline">
-				<div class="scrollup"><a href="#scrollup" title="">Scroll Up</a></div>
-				<span>Copyright &copy; 2024 shugacoin.org All rights reserved. Built with <i class="fa fa-heart"></i></span>
-			</div>
-		</div>
-	</section>
-
-</div>
+	</footer>
+	<!-- ***** Contact & Footer End ***** -->
 
 
-<script src="js/jquery.min.js" type="text/javascript"></script>
-<script src="js/modernizr.js" type="text/javascript"></script>
-<script src="js/script.js" type="text/javascript"></script>
-<script src="js/bootstrap.min.js" type="text/javascript"></script>
-<script src="js/wow.min.js" type="text/javascript"></script>
-<script src="js/slick.min.js" type="text/javascript"></script>
-<script src="js/scrolly.js" type="text/javascript"></script>
-<script src="js/countdown.js" type="text/javascript"></script>
-<script src="js/mouse.js" type="text/javascript"></script>
-<script src="js/3d.js" type="text/javascript"></script>
-<script src="js/enllax.js" type="text/javascript"></script>
-<script src="js/poptrox.js" type="text/javascript"></script>
-<script src="js/scrollnav.js" type="text/javascript"></script>
-<script src="js/scrollup.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
-<script src="https://code.highcharts.com/highcharts.src.js"></script>
+	<!-- jQuery -->
+	<script src="assets/js/jquery-3.6.0.min.js"></script>
+
+	<!-- Bootstrap -->
+	<script src="assets/js/popper.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+
+	<!-- Plugins -->
+	<script src="assets/js/particles.min.js"></script>
+	<script src="assets/js/scrollreveal.min.js"></script>
+	<script src="assets/js/jquery.downCount.js"></script>
+	<script src="assets/js/parallax.min.js"></script>
+
+	<!-- Global Init -->
+	<script src="assets/js/particle-dark.js"></script>
+	<script src="assets/js/custom.js"></script>
+		<!-- All magic is here :D -->
 		<script>
 			// Config
 			var networksConfigs = {
@@ -667,7 +662,7 @@
 
 			// Set window title
 			function setTitle(title) {
-				document.title = title + ' | Shugacoin Explorer - Open source PoW CPU Blockchain';
+				document.title = title + ' | Shugacoin Explorer';
 			}
 
 			// Bocks request
@@ -956,14 +951,13 @@
 				$('#address-transactions').empty()
 				content = `
 					<div class="card mb-3">
-						<div class="table-responsive">
+						<div class="table-responsive">			
 							<table class="table table-borderless table-md table-striped mb-0">
 								<tbody>
 									<tr>
 										<td>Address</td>
 										<td id="data-address" data-address="${address}">
 											${address}
-											<a href="#" onclick="showQrModal(event, '${address}')">(QR)</a>
 										</td>
 									</tr>
 									<tr>
@@ -1630,7 +1624,6 @@
 					displayHome()
 				}, 10000);
 			})
-		</script>
+		</script>	
 </body>
 </html>
-
