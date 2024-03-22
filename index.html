@@ -84,6 +84,7 @@
                             <span class="fw-semibold text-primary">Shugacoin</span> Explorer
                         </h1>					
                         <p id="supply" class="fw-medium mt-3 lh-base text-black">Circulating supply: <span>Loading...</span></p>
+						<p class="fw-medium mt-3 lh-base text-black" id="priceusd">Loading..</p>
                     </div>
                     <div class="main-btn mt-4">
                         <a href="https://discord.com/invite/BFJpACPyPH" class="btn btn-primary fs-6 mb-3"><span><i class="bi bi-discord"></i></span></a>
@@ -1685,6 +1686,27 @@
 				}, 10000);
 			})
 		</script>
+        <script>
+            function getPrice() {
+                return Promise.resolve($.ajax({
+                    url: "https://api.bitstorage.finance/v1/public/ticker?pair=SHUGAUSDT",
+                    dataType: 'json',
+                    type: 'GET',
+                }))
+            }
+
+            function getCurrentPrice() {
+                getPrice().then(function(data) {
+                    priceUSD = parseFloat(data.data.last)
+                    $("#priceusd").text("Last Price: $" + priceUSD)
+
+                })
+            }
+
+            setInterval(function() {
+                getCurrentPrice()	
+            }, 1000)
+        </script>			
 </body>
 
 </html>
